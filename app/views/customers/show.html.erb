@@ -8,3 +8,28 @@
 
   <%= button_to "Destroy this customer", @customer, method: :delete %>
 </div>
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Product name</th>
+    <th>Count</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.product_name %></td>
+        <td><%= order.product_count %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= button_to "Destroy", order, method: :delete, data: { turbo_confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
