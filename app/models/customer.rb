@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
     validates :phone, numericality: { only_integer: true }
     validates :phone, length: { is: 10 }
     validates :email, presence: true, email: true
-    has_many :Orders
+    has_many :orders
 
     def full_name
         "#{first_name} #{last_name}"
