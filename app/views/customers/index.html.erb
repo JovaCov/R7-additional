@@ -3,12 +3,26 @@
 <h1>Customers</h1>
 
 <div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
+  <table>
+    <thread>
+    <tr>
+      <th>Full Name</th>
+      <th>Orders</th>
+      <th colspan="1"></th>
+    </tr>
+    </thread>
+
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.full_name %></td>
+          <td><%= customer.orders.count %></td>
+          <td><%= link_to "Show", customer %></td>
+        </tr>
+      <% end %>  
+    </tbody>
+  </table>
+  
 </div>
 
 <%= link_to "New customer", new_customer_path %>

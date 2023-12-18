@@ -34,15 +34,17 @@ RSpec.describe "Orders", type: :request do
   end
   describe "post order_path with valid data" do
     it "save a new order" do
-      order_attributes = FactoryBot.attributes_for(:order)
+      customer = FactoryBot.create(:customer)
+      order_attributes = FactoryBot.attributes_for(:order, customer_id: customer.id)
       expect { post orders_path, params: {order: order_attributes} }.to change(Order, :count)
     end
   end
   describe "post order_path with invalid data" do
     it "does not save a new entry" do
-      order_attributes = FactoryBot.attributes_for(:order)
+      customer = FactoryBot.create(:customer)
+      order_attributes = FactoryBot.attributes_for(:order, customer_id: customer.id)
       order_attributes.delete(:product_name)
-      expect { post orders_path, params: {ordre:order_attributes} }.to_not change(Order, :count)
+      expect { post orders_path, params: {order:order_attributes} }.to_not change(Order, :count)
     end
   end
   describe "put order_path with valid data" do
