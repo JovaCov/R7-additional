@@ -13,6 +13,29 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import "font-awesome";
+
 .my_alert {
     color:red
 }
+
+:root {
+    --bs-body-bg: #a3f0d9; 
+}
+
+@font-face {
+    font-family: 'billion';
+    src: url('BillionStars_PersonalUse.ttf');
+}
+
+.banner-background {
+    background-image: url('blueprint-background.jpg');
+    background-size: cover;
+    font-family: 'billion';
+}
+
+.btn.btn-primary {
+    background-color: rgb(143, 10, 148);
+}
+

@@ -10,10 +10,50 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% if flash[:alert].present? %>
-      <p class="my_alert"><%= flash[:alert] %></p>
-    <% end %>
-    <%= yield %>
-  </body>
+  <div class="container-fluid">
+    <div class="mt-4 p-5 bg-primary text-white rounded banner-background" >
+      
+      <h1>Customer and order Tracking</h1>
+      <p>Here is a list of customers and there orders. Click show for more information</p>
+     
+      
+    </div>
+    <div class="container mt-3">
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+    </div>
+
+
+    <ul class="nav">
+      <li class="customers">
+        <div class="dropdown">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+            Customers
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/customers">Customer list</a></li>
+            <li><a class="dropdown-item" href="/customers/new">New customer</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="orders">
+        <div class="dropdown">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+            Orders
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/orders">Orders list</a></li>
+            <li><a class="dropdown-item" href="orders/new">New order</a></li>
+          </ul>
+        </div>
+      </li>
+      
+    </ul>
+
+    <body>
+      
+      <%= yield %>
+    </body>
+  </div>
 </html>

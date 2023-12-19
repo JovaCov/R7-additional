@@ -1,14 +1,40 @@
-<p style="color: green"><%= notice %></p>
+
 
 <h1>Orders</h1>
 
 <div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
+  <div class="containerp-fluid row">
+   
+    <% @orders.each do |order| %>
+      <div class="card border border-2 border-success p-1 mt-3" style="width: 18rem;">
+        
+        <div class="card-header">
+          <%= order.product_name %>
+        </div>
+        
+        <div class="card-body">
+          <p>
+            Product count:
+            <%= order.product_count %>
+          </p>
+          <p>
+            Customer Id:
+            <%= order.customer_id %>
+          </p>
+        </div>
+        
+        <div class="card-footer">
+          
+          
+          <%= link_to "Edit", edit_order_path(order.id), class:"btn btn-primary" %>
+          <%= button_to "Delete", order, method: :delete, class:"btn btn-primary" %>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+
+
 </div>
 
-<%= link_to "New order", new_order_path %>
+<%= link_to "New order", new_order_path, class: "btn btn-primary" %>

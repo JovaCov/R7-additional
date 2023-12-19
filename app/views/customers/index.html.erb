@@ -1,9 +1,10 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Customers</h1>
 
-<div id="customers">
-  <table>
+  
+
+<div id="customers" class="container mt-3">
+  <h1>Customers</h1>
+  <table class="table table-striped">
     <thread>
     <tr>
       <th>Full Name</th>
@@ -15,14 +16,14 @@
     <tbody>
       <% @customers.each do |customer| %>
         <tr>
-          <td><%= customer.full_name %></td>
+          <td><i class="fa-solid fa-user"></i><%= customer.full_name %></td>
           <td><%= customer.orders.count %></td>
-          <td><%= link_to "Show", customer %></td>
+          <td><%= link_to "Show", customer, class: "btn btn-primary" %></td>
         </tr>
       <% end %>  
     </tbody>
   </table>
-  
+  <%= link_to "New customer", new_customer_path, class: "btn btn-primary" %>
 </div>
 
-<%= link_to "New customer", new_customer_path %>
+
